@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import './style.css';
 import InputBox from 'src/components/InputBox';
 
@@ -25,6 +25,8 @@ export default function Auth() {
     const [telNumberMessageError, setTelNumberMessageError] = useState<boolean>(false);
     const [authNumberMessageError, setAuthNumberMessageError] = useState<boolean>(false);
 
+    const [isCheckedId, setCheckedId] = useState<boolean>(false);
+
     const onNameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         // const value = event.target.value;
         const { value } = event.target;
@@ -34,6 +36,8 @@ export default function Auth() {
     const onIdChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
         setId(value);
+        setCheckedId(false);
+        setIdMessage('');
     }
 
     const onPasswordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -43,29 +47,15 @@ export default function Auth() {
         const pattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,13}$/;
         const isMatched = pattern.test(value);
 
-        const message = isMatched ? '' : '영문, 숫자를 혼용하여 8 ~ 13자 입력해주세요';
+        const message = (isMatched || !value) ? '' : '영문, 숫자를 혼용하여 8 ~ 13자 입력해주세요';
         setPasswordMessage(message);
         setPasswordMessageError(!isMatched);
-
-        if (!passwordCheck) return;
-
-        const isEqual = passwordCheck === value;
-        const checkMessage = isEqual ? '' : '비밀번호가 일치하지 않습니다';
-        setPasswordCheckMessage(checkMessage);
-        setPasswordCheckMessageError(!isEqual);
 
     }
 
     const onPasswordCheckChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
         setPasswordCheck(value);
-
-        if (!password) return;
-
-        const isEqual = password === value;
-        const message = isEqual ? '' : '비밀번호가 일치하지 않습니다';
-        setPasswordCheckMessage(message);
-        setPasswordCheckMessageError(!isEqual);
     }
 
     const onTelNumberChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -85,21 +75,27 @@ export default function Auth() {
         const message = isDuplicated ? '이미 사용중인 아이디 입니다' : '사용 가능한 아이디 입니다';
         setIdMessage(message);
         setIdMessageError(isDuplicated);
+        setCheckedId(!isDuplicated);
     }
 
     const onTelNumberSendClickHandler = () => {
-        if (!telNumber) {
-            return;
-        }
+        if (!telNumber) return;
         alert('인증번호 전송!');
     }
 
     const onAuthNumberCheckClickHandler = () => {
-        if (!authNumber) {
-            return;
-        }
+        if (!authNumber) return;
         alert('인증번호 확인!');
     }
+
+    useEffect(() => {
+        if (!password || !passwordCheck) return;
+
+        const isEqual = password === passwordCheck;
+        const message = isEqual ? '' : '비밀번호가 일치하지 않습니다';
+        setPasswordCheckMessage(message);
+        setPasswordCheckMessageError(!isEqual);
+    }, [password, passwordCheck]);
 
     return (
         <div id="auth-wrapper">
