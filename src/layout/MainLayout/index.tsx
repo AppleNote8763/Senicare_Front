@@ -56,7 +56,22 @@ function SideNavigation() {
 
     // render: 좌측 네이베이션 컴포넌트 렌더링 //
     return (
-        <div id='layout-side-navigation'>사이드바</div>
+        <div id='layout-side-navigation'>
+            <div className='navigation'>
+                <div className='navigation-item active'>
+                    <div className='icon cs-active-icon'></div>
+                    <div className='item-text'>고객 관리</div>
+                </div>
+                <div className='navigation-item'>
+                    <div className='icon mm-icon'></div>
+                    <div className='item-text'>용품 관리</div>
+                </div>
+                <div className='navigation-item'>
+                    <div className='icon hr-icon'></div>
+                    <div className='item-text'>인사 관리</div>
+                </div>
+            </div>
+        </div>
     )
 }
 
@@ -71,7 +86,7 @@ export default function MainLayout() {
 
     // effect: 레이아웃 마운트시 로그인 여부 확인 //
     useEffect(() => {
-        if(!cookies[ACCESS_TOKEN]) navigator(AUTH_ABSOLUTE_PATH);
+        // if(!cookies[ACCESS_TOKEN]) navigator(AUTH_ABSOLUTE_PATH);
     }, [])
 
     // render: 메인 레이아웃 컴포넌트 렌더링 //
