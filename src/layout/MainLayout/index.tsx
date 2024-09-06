@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router'
 import './style.css'
-import path from 'path';
 import { useCookies } from 'react-cookie';
 import { ACCESS_TOKEN, AUTH_ABSOLUTE_PATH, CS_ABSOLUTE_PATH, CS_PATH, HR_ABSOLUTE_PATH, HR_PATH, MM_ABSOLUTE_PATH, MM_PATH, ROOT_ABSOLUTE_PATH } from 'src/constants';
 
