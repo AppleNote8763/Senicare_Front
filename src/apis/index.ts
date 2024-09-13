@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from "axios"
-import { IdCheckRequestDto, TelAuthRequestDto } from "./dto/request/auth";
+import { IdCheckRequestDto, TelAuthCheckRequestDto, TelAuthRequestDto } from "./dto/request/auth";
 import { ResponseDto } from "./dto/response";
-import { error } from "console";
 
 // variable: API URL 상수 //
 const SENICARE_API_DOMAIN = 'http://localhost:4000';
@@ -38,6 +37,14 @@ export const idCheckRequest = async (requestBody: IdCheckRequestDto) => {
 // function: tel auth api 요청 함수 //
 export const telAuthRequest = async (requestBody: TelAuthRequestDto) => {
     const responseBody = await axios.post(TEL_AUTH_API_URL, requestBody)
+        .then(responseDataHandler<ResponseDto>)
+        .catch(responseErrorHandler);
+    return responseBody;
+}
+
+// function: tel auth check 요청 함수 //
+export const telAuthCheckRequest = async (requestBody: TelAuthCheckRequestDto) => {
+    const responseBody = await axios.post(TEL_AUTH_CHECK_API_URL, requestBody)
         .then(responseDataHandler<ResponseDto>)
         .catch(responseErrorHandler);
     return responseBody;
