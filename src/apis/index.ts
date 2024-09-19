@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from "axios"
 import { IdCheckRequestDto, SignInRequestDto, SignUpRequestDto, TelAuthCheckRequestDto, TelAuthRequestDto } from "./dto/request/auth";
 import { ResponseDto } from "./dto/response";
+import { SignInResponseDto } from "./dto/response/auth";
 
 // variable: API URL 상수 //
 const SENICARE_API_DOMAIN = 'http://localhost:4000';
@@ -61,7 +62,7 @@ export const signUpRequest = async (requestBody: SignUpRequestDto) => {
 // function: sign in 요청 함수 //
 export const signInRequest = async (requestBody: SignInRequestDto) => {
     const responseBody = await axios.post(SIGN_IN_API_URL, requestBody)
-        .then(responseDataHandler<ResponseDto>)
+        .then(responseDataHandler<SignInResponseDto>)
         .catch(responseErrorHandler);
     return responseBody;
 }
