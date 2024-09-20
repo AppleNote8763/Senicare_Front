@@ -110,7 +110,7 @@ export default function MainLayout() {
             <Logo />
             <Top />
             <SideNavigation />
-            <div id='main_wrapper'>
+            <div id='main-wrapper'>
                 <Outlet />
             </div>
         </div>

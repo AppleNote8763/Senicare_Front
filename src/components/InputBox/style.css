@@ -10,7 +10,7 @@
     color: var(--gray-color);
 }
 
-.input-box .input_area {
+.input-box .input-area {
     display: flex;
     gap: 10px;
 }
@@ -43,7 +43,7 @@ input::placeholder {
     border-radius: 6px;
     padding: 8px 0;
     width: 110px;
-    
+
     font-size: 16px;
     font-weight: 400;
     line-height: 175%;

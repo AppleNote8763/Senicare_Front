@@ -1,9 +1,9 @@
 #main-layout {
     display: grid;
-    grid-template: 
+    grid-template:
         "logo top" 77px
         "side main" minmax(944px, auto)
-        / 257px minmax(1182px, 1000%);
+        / 257px minmax(1182px, 100%);
 }
 
 #layout-logo {
@@ -15,10 +15,10 @@
 
     border-bottom: 1px solid rgba(233, 236, 239, 1);
     border-right: 1px solid rgba(233, 236, 239, 1);
-
+    
     /* 드래그 방지 */
     user-select: none;
-    -webkit-user-select: none;
+    -webkit-user-select:none;
     -moz-user-select: none;
     -ms-user-select: none;
 }
@@ -88,6 +88,7 @@
     color: var(--gray-color);
     font-size: 16px;
     font-weight: 400;
+
 }
 
 #layout-side-navigation .navigation-item:hover {
@@ -97,7 +98,7 @@
 
 #layout-side-navigation .navigation-item.active {
     background-color: var(--primary-color);
-
+    
     color: rgba(255, 255, 255, 1);
 }
 
