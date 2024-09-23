@@ -70,7 +70,6 @@ body {
 
 .disable:hover {
     opacity: 1;
-    cursor: default;
 }
 
 .full-width {

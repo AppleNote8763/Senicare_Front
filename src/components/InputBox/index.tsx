@@ -29,7 +29,7 @@ export default function InputBox({
 
         <div className="input-box">
             <div className="label">{label}</div>
-            <div className="input_area">
+            <div className="input-area">
                 <input value={value} type={type} placeholder={placeholder} onChange={onChange} />
                 {buttonName && <div className={`input-button ${value ? 'active' : 'disable'}`} onClick={onButtonClick}>{buttonName}</div>}
             </div>

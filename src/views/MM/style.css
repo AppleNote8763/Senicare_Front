@@ -67,3 +67,7 @@
 #mm-wrapper .top-text .emphasis {
     color: rgba(64, 64, 64, 1);
 }
+
+#mm-wrapper .button.disable:hover {
+    cursor: pointer;
+}
