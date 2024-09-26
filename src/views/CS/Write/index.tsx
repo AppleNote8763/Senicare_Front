@@ -146,18 +146,30 @@ export default function CSWrite() {
                     <div className='modal-top'>
                         <div className='modal-label'>담당자 이름</div>
                         <div className='modal-input-box'>
-                            <input />
+                            <input className='modal-input' placeholder='이름을 입력하세요' />
                             <div className='button disable'>검색</div>
                         </div>
                     </div>
-                    <div className='modal-main'></div>
+                    <div className='modal-main'>
+                        <div className='table'>
+                            <div className='th'>
+                                <div className='td-nurse-id'>ID</div>
+                                <div className='td-nurse-name'>이름</div>
+                                <div className='td-nurse-tel-number'>전화번호</div>
+                            </div>
+                            <div className='tr'>
+                                <div className='td-nurse-id'>ID</div>
+                                <div className='td-nurse-name'>이름</div>
+                                <div className='td-nurse-tel-number'>전화번호</div>
+                            </div>
+                        </div>
+                    </div>
                     <div className='modal-bottom'>
                         <div className='button disable' onClick={onModalOpenHandler}>닫기</div>
                     </div>
                 </div>
             </div>
             }
-            
         </div>
     )
 }
