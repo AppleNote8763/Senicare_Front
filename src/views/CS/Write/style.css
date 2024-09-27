@@ -28,7 +28,7 @@
     cursor: pointer;
 }
 
-#cs-write-wrapper .input-container{
+#cs-write-wrapper .input-container {
     flex: 1;
 
     display: flex;
@@ -143,6 +143,10 @@
 #cs-write-wrapper .modal-main .th,
 #cs-write-wrapper .modal-main .tr {
     gap: 52px;
+}
+
+#cs-write-wrapper .modal-main .tr {
+    cursor: pointer;
 }
 
 #cs-write-wrapper .modal-main .td-nurse-id,
