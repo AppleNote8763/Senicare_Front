@@ -27,7 +27,6 @@
     width: 134px;
     height: 180px;
 
-    background-color: aqua;
     background-size: cover;
     background-position: 50% 50%;
 }
@@ -61,4 +60,16 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+}
+
+#cs-detail-wrapper .button-box {
+    display: flex;
+    gap: 12px;
+}
+
+#cs-detail-wrapper .title {
+    color: rgba(64, 64, 64, 1);
+
+    font-size: 16px;
+    font-weight: 700;
 }
