@@ -128,15 +128,15 @@ export default function CSDetail() {
     }
 
     // function: post care record response 처리 함수 //
-    const postCareRecordListResponse = (responseBody: ResponseDto | null) => {
+    const postCareRecordResponse = (responseBody: ResponseDto | null) => {
         const message = 
-            !responseBody ? '서버에 문제가 있습니다' : 
-            responseBody.code === 'VF' ? '유효하지 않은 데이터입니다' : 
-            responseBody.code === 'AF' ? '잘못된 접근입니다' : 
-            responseBody.code === 'NP' ? '권한이 없습니다' : 
-            responseBody.code === 'TI' ? '용품의 개수가 부족합니다' : 
-            responseBody.code === 'DBE' ? '서버에 문제가 있습니다' : '';
-
+            !responseBody ? '서버에 문제가 있습니다.' : 
+            responseBody.code === 'VF' ? '유효하지 않은 데이터입니다.' : 
+            responseBody.code === 'AF' ? '잘못된 접근입니다.' : 
+            responseBody.code === 'NP' ? '권한이 없습니다.' :
+            responseBody.code === 'TI' ? '용품의 개수가 부족합니다.' :
+            responseBody.code === 'DBE' ? '서버에 문제가 있습니다.' : '';
+        
         const isSuccessed = responseBody !== null && responseBody.code === 'SU';
         if (!isSuccessed) {
             alert(message);
@@ -178,7 +178,7 @@ export default function CSDetail() {
     // event handler: 사용 용품 개수 변경 이벤트 처리 //
     const onUsedToolCountChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         if (!selectedTool) return;
-
+        
         const { value } = event.target;
         const regexp = /^\d*$/;
         const isMatched = regexp.test(value);
@@ -226,7 +226,7 @@ export default function CSDetail() {
             count: selectedTool ? Number(usedToolCount) : null
         }
 
-        postCareRecordRequest(requestBody, customerNumber, accessToken).then(postCareRecordListResponse);
+        postCareRecordRequest(requestBody, customerNumber, accessToken).then(postCareRecordResponse);
     }
 
     // event handler: 목록 버튼 클릭 이벤트 처리 //

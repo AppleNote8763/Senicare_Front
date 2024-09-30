@@ -9,8 +9,8 @@ import { Address, useDaumPostcodePopup } from 'react-daum-postcode';
 import { GetNurseListResponseDto } from 'src/apis/dto/response/nurse';
 import { ResponseDto } from 'src/apis/dto/response';
 import { ACCESS_TOKEN, CS_ABSOLUTE_PATH, CS_DETAIL_ABSOLUTE_PATH } from 'src/constants';
-import { fileUploadRequest, getCustomerRequest, getNurseListRequest, patchCustomerRequest, postCustomerRequest } from 'src/apis';
-import { PatchCustomerRequestDto, PostCustomerRequestDto } from 'src/apis/dto/request/customer';
+import { fileUploadRequest, getCustomerRequest, getNurseListRequest, patchCustomerRequest } from 'src/apis';
+import { PatchCustomerRequestDto } from 'src/apis/dto/request/customer';
 import Pagination from 'src/components/Pagination';
 import { GetCustomerResponseDto } from 'src/apis/dto/response/customer';
 
