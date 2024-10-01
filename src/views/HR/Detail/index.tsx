@@ -44,6 +44,7 @@ export default function HRDetail() {
     // function: 네비게이터 함수 //
     const navigator = useNavigate();
 
+
     // function: get nurse response 처리 함수 //
     const getNurseResponse = (responseBody: GetNurseResponseDto | ResponseDto | null) => {
         const message = 
@@ -96,6 +97,9 @@ export default function HRDetail() {
     const onShowUpdateClickHandler = () => {
         setUpdate(true);
     }
+
+    // event handler: 수정 취소 클릭 이벤트 처리 //
+    
 
     // effect: 요양사 아이디가 변경될 시 실행할 함수 //
     useEffect(() => {
@@ -155,7 +159,13 @@ export default function HRDetail() {
             </div>
             <div className='bottom'>
                 <div className='button primary' onClick={onListButtonClickHandler}>목록</div>
-                {isSignInUser && <div className='button second' onClick={onShowUpdateClickHandler}>수정</div>}
+                {isSignInUser && update ? 
+                <div className='button-box'>
+                    <div className='button disable'>취소</div>
+                    <div className='button second'>저장</div>
+                </div> : 
+                <div className='button second' onClick={onShowUpdateClickHandler}>수정</div>
+                }
             </div>
         </div>
     )
