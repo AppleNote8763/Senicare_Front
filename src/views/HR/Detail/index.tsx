@@ -107,6 +107,11 @@ export default function HRDetail() {
         getChargedCustomerRequest(userId, accessToken).then(getChargedCustomerResponse);
     }, [userId])
 
+    // effect: update 상태가 변경될 시 실행할 함수 //
+    useEffect(() => {
+        setUpdateName(name);
+    }, [update, name])
+
     // render: 인사 정보 상세 보기 컴포넌트 렌더링 //
     return (
         <div id='hr-detail-wrapper'>
