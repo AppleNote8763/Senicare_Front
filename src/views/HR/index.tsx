@@ -79,7 +79,7 @@ export default function HR() {
     // function: get nurse list response 처리 함수 //
     const getNurseListResponse = (responseBody: GetNurseListResponseDto | ResponseDto | null) => {
         const message = 
-            !responseBody ? '서버에 문제가 있습니다' :
+            !responseBody ? '서버에 문제가 있습니다' : 
             responseBody.code === 'AF' ? '잘못된 접근입니다' : 
             responseBody.code === 'DBE' ? '서버에 문제가 있습니다' : '';
 
